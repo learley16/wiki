@@ -1,0 +1,48 @@
+<%- include("partials/header") -%>
+
+
+</br>
+
+<div class="row">
+    <div class="col-2 p-4" >
+        <h2 style="color: #1abc9c;">Filters</h2>
+        <a class="text-decoration-none" href="/"><span class="text-dark">All</span></a>
+        <br>
+        <a class="text-decoration-none" href="/posts/topic/general-dev"><span class="text-dark">General Dev</span></a>
+        <br>
+        <a class="text-decoration-none" href="/posts/topic/html"><span class="text-dark ">HTML</span></a>
+        <br>
+        <a class="text-decoration-none" href="/posts/topic/css"><span class="text-dark">CSS</span></a>
+        <br>
+        <a class="text-decoration-none" href="/posts/topic/javascript"><span class="text-dark ">JavaScript</span></a>
+        <br>
+        <a class="text-decoration-none" href="/posts/topic/images"><span class="text-dark ">Images</span></a>
+        <br>
+        <a class="text-decoration-none" href="/posts/topic/databases"><span class="text-dark ">Databases</span></a>
+
+    </div>
+
+
+    <div class="col-10 p-2">
+        <h1 style="color: #1abc9c;"><%= title %></h1>
+        <br>
+        <% posts.forEach(function(post) { %>
+            <div class="p-2">
+                <div class="card">
+                    <div class="card-header">
+                        <small style="color: #1abc9c;"><%= post.topic %></small>
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title"><%= post.title %></h5>
+                    <p class="card-text"><%= post.content.substring(0,100) + " ..." %>
+                        <a style="color: #1abc9c;" href="/posts/<%=escape(post.title)%>">Read More</a></p>
+                    </div>
+                </div>  
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+
+<%- include("partials/footer") -%>
+ 
